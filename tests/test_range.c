@@ -1,4 +1,5 @@
 #include "range.h"
+#include "asserts.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -6,14 +7,6 @@
 #include <string.h>
 
 RangeType test_range_i = 0;
-
-void assert_true(bool exp, const char *msg)
-{
-    if (!exp){
-        puts(msg);
-        abort();
-    }
-}
 
 RangeType test_range_callback(Range r, RangeType i)
 {

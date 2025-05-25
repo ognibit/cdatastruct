@@ -24,3 +24,12 @@ struct ArrayInt {
     int *values;
 };
 ```
+
+## Stack
+
+`stack.h`: provides the `StackIndex` for building a stack on an array.
+
+It does not provide the actual array manipulation because it depends on the
+array type. Moreover, the error management is application specific.
+Therefore, the user must implement the actual stack for every type needed, but
+it is just as trivial as using the `StackIndex` along with the support array.

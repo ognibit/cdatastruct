@@ -1,2 +1,2 @@
 *.o
-range
+tests/*.exe

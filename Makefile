@@ -3,7 +3,10 @@ CFLAGS = -std=c99 -Wall -Wextra -g -Og -pedantic -fsanitize=undefined
 RELEASE_FLAGS = -std=c99 -Wall -Wextra -O2 -DNDEBUG=1
 LFLAGS = -I.
 TEST_DIR = tests
-TARGETS = $(TEST_DIR)/test_range.exe $(TEST_DIR)/test_stack.exe
+TARGETS = $(TEST_DIR)/test_range.exe \
+		  $(TEST_DIR)/test_stack.exe \
+		  $(TEST_DIR)/test_queue.exe
+HEADERS = range.h stack.h queue.h
 OBJECTS = $(TARGETS:.exe=.o)
 
 # Default target (debug build)
@@ -14,7 +17,7 @@ all: $(TARGETS)
 	$(CC) $(CFLAGS) -o $@ $<
 
 # Compile source files to object files
-%.o: %.c
+%.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c -o $@ $< $(LFLAGS)
 
 # Build optimized release version

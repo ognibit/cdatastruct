@@ -5,8 +5,9 @@ LFLAGS = -I.
 TEST_DIR = tests
 TARGETS = $(TEST_DIR)/test_range.exe \
 		  $(TEST_DIR)/test_stack.exe \
-		  $(TEST_DIR)/test_queue.exe
-HEADERS = range.h stack.h queue.h
+		  $(TEST_DIR)/test_queue.exe \
+		  $(TEST_DIR)/test_objpool.exe
+HEADERS = range.h stack.h queue.h objpool.h
 OBJECTS = $(TARGETS:.exe=.o)
 
 # Default target (debug build)

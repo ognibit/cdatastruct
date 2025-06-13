@@ -6,8 +6,9 @@ TEST_DIR = tests
 TARGETS = $(TEST_DIR)/test_range.exe \
 		  $(TEST_DIR)/test_stack.exe \
 		  $(TEST_DIR)/test_queue.exe \
+		  $(TEST_DIR)/test_slist.exe \
 		  $(TEST_DIR)/test_objpool.exe
-HEADERS = range.h stack.h queue.h objpool.h
+HEADERS = range.h stack.h queue.h objpool.h slist.h
 OBJECTS = $(TARGETS:.exe=.o)
 
 # Default target (debug build)

@@ -21,6 +21,14 @@ to convert it into classical header/code pair.
 
 In the `tests` directory there are example of usage.
 
+## TODOs
+
+- [ ] Add procedures to allow resizing where it make sense.
+- [ ] Add SList multiple heads.
+- [ ] Improve documentation.
+- [ ] Change object pool init from O(n) to O(1).
+- [ ] Improve tests coverage and standardize them.
+
 ### Range
 
 `range.h`: mainly for safely indexing arrays.
@@ -76,3 +84,22 @@ used as real pool, like a connection pool.
 The code provide safety asserts that can be turned off setting `NDEGUG=1` as
 usual. In development stage, they could help to spot the release of wrong
 pointers.
+
+## Single Linked List
+
+`slist.h`: provides the `SList` and `SListIter` for managing pointers in a list.
+
+The value in the list is a generic pointer (`void *`), therefore the user must
+deal with the correct types. Moreover, the scope of the referenced object must
+be coherent with the one of the list.
+The list needs a memory arena to work on.
+The list provides `slist_push` and `slist_pop` to use the list as a stack, but
+it is not recommended to replace a stack with a list.
+The main procedures of the list are `slist_insert` and `slist_delete` that
+allows to insert a new element before the item pointed by the iterator and
+delete that item, both in `O(1)` as expected.
+To append elements to the list in the order of insertion, move an iterator to
+the end of the list and insert there (see `test_slist.c`).
+Search on list can be done using the iterator, but the content of the item must
+be accessed using the application logic via the value pointer.
+To delete the entire list, just deallocate the memory arena.
